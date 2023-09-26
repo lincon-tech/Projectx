@@ -6,7 +6,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
-      BucketName: !Sub 's3-origin-chimesdk-workshops-${AWS::StackName}-${AWS::AccountId}-${!RandomDigits 3}'
+      BucketName: !Sub s3-origin-chimesdk-workshops-${AWS::StackName}-${AWS::AccountId}-${!RandomDigits 3}
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
