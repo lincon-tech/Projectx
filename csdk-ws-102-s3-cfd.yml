@@ -10,7 +10,7 @@ Resources:
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: S3Bucket
+      Bucket: !Ref S3Bucket
       PolicyDocument:
         Statement:
           - Action:
