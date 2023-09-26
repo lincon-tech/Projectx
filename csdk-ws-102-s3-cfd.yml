@@ -7,9 +7,9 @@ Resources:
     Properties:
       AccessControl: "Private"
       BucketName: !Sub 's3-origin-chimesdk-workshops-${AWS::StackName}-${AWS::AccountId}-${!RandomDigits 3}'
-      DeletionPolicy: "Delete"
-      Metadata:
-        Comment: "Bucket to store some data for chimesdk-workshops"
+      # DeletionPolicy: "Delete"
+      # Metadata:
+      #   Comment: "Bucket to store some data for chimesdk-workshops"
     # Properties:
     #   AccessControl: 'Private'
     #   BucketName: Sub 's3-origin-chimesdk-workshops-${AWS::StackName}-${AWS::AccountId}-${!RandomDigits 3}'
