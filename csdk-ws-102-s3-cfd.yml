@@ -17,9 +17,8 @@ Resources:
               - s3:GetObject
             Effect: Allow
             Principal:
-              CanonicalUser: CfOriginAccessIdentity.S3CanonicalUserId
-            Resource:
-              - arn:aws:s3:::${S3Bucket}/*
+              CanonicalUser: !GetAtt CFOriginAccessIdentity.S3CanonicalUserId
+            Resource: !Sub arn:aws:s3:::${S3Bucket}/*
   CfDistribution:
     Metadata:
       Comment: CloudFront distribution with an S3 origin for Amazon ChimeSDK WS-102
@@ -54,10 +53,10 @@ Resources:
             Id: s3-origin-${S3Bucket}
             OriginPath: ""
             S3OriginConfig:
-              OriginAccessIdentity: origin-access-identity/cloudfront/${CfOriginAccessIdentity}
+              OriginAccessIdentity: !Sub origin-access-identity/cloudfront/${CFOriginAccessIdentity}
         PriceClass: PriceClass_All
     Type: AWS::CloudFront::Distribution
-  CfOriginAccessIdentity:
+  CFOriginAccessIdentity:
     Metadata:
       Comment: Access S3 bucket content only through CloudFront
     Properties:
