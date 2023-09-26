@@ -50,7 +50,7 @@ Resources:
         HttpVersion: http1.1
         IPV6Enabled: false
         Origins:
-          - DomainName: S3Bucket.DomainName
+          - DomainName: !Ref S3Bucket.DomainName
             Id: s3-origin-${S3Bucket}
             OriginPath: ""
             S3OriginConfig:
